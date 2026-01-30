@@ -5,7 +5,7 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 import getImagesByQuery from './js/pixabay-api.js';
-import { createGallery } from './js/render-functions.js';
+import { createGallery, hideLoader } from './js/render-functions.js';
 
 /** @type {HTMLFormElement}  */
 const form = document.querySelector('.form');
@@ -21,6 +21,7 @@ function searchImg(event) {
     console.log(data.hits);
 
     if (data.hits.length === 0) {
+      hideLoader();
       iziToast.error({
         title: 'Nth were find',
         message:
