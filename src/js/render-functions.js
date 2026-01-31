@@ -51,8 +51,16 @@ export function createGallery(images) {
     `;
   });
 
-  hideLoader();
   gallery.insertAdjacentHTML('afterbegin', markup.join(''));
+
+  const modal = new SimpleLightbox(`.gallery li a`, {
+    captions: true,
+    captionsData: 'alt',
+    captionPosition: 'bottom',
+    captionDelay: 250,
+  });
+
+  modal.refresh();
 }
 
 export function clearGallery() {
